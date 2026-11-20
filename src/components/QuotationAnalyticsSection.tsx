@@ -35,7 +35,6 @@ export const QuotationAnalyticsSection: React.FC = () => {
   return (
     <section aria-label="Quotation Analytics" className="mt-6">
       
-      {/* Section Header */}
       <div className="flex items-center gap-2 mb-3">
         <div className="w-6 h-6 rounded-md bg-blue-100 text-blue-700 flex items-center justify-center font-bold">
           <FileText className="w-3.5 h-3.5" />
@@ -247,7 +246,6 @@ export const QuotationAnalyticsSection: React.FC = () => {
             <span className="text-[11px] text-slate-400 font-medium">Win Ratio</span>
           </div>
 
-          {/* Circular Visual / Ring */}
           <div className="my-auto py-3 flex flex-col items-center justify-center">
             <div className="relative w-28 h-28 flex items-center justify-center">
               <svg className="w-full h-full transform -rotate-90" viewBox="0 0 100 100">

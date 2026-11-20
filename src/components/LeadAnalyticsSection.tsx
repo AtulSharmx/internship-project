@@ -55,7 +55,6 @@ export const LeadAnalyticsSection: React.FC = () => {
           </span>
         </div>
 
-        {/* Visual Target vs Achieved Funnel/Bar */}
         <div className="bg-slate-50 border border-slate-100 rounded-lg p-3 my-1">
           <div className="flex items-center justify-between text-xs mb-1.5 font-medium">
             <span className="text-slate-600">Target vs Achieved</span>
@@ -120,7 +119,6 @@ export const LeadAnalyticsSection: React.FC = () => {
           <span className="text-[11px] text-slate-400 font-medium">Stage Retention</span>
         </div>
 
-        {/* Funnel Visual Stack */}
         <div className="py-2 flex flex-col gap-2 relative">
           
           {/* Stage 1: New Leads */}
@@ -177,7 +175,6 @@ export const LeadAnalyticsSection: React.FC = () => {
             </div>
           </div>
 
-          {/* Unqualified Dropoff Badge */}
           <div 
             onClick={() => openDrillDown({
               type: 'lead_list',
@@ -302,7 +299,6 @@ export const LeadAnalyticsSection: React.FC = () => {
         </div>
 
         <div className="flex items-center gap-2 py-2">
-          {/* Donut Chart */}
           <div className="w-1/2 h-36 relative flex items-center justify-center">
             <ResponsiveContainer width="100%" height="100%">
               <PieChart>
@@ -332,7 +328,6 @@ export const LeadAnalyticsSection: React.FC = () => {
               </PieChart>
             </ResponsiveContainer>
 
-            {/* Center Total Annotation */}
             <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none text-center">
               <span className="text-sm font-black text-slate-900 font-mono tabular-nums leading-none">
                 {leadFunnel.total}
@@ -343,7 +338,6 @@ export const LeadAnalyticsSection: React.FC = () => {
             </div>
           </div>
 
-          {/* Legend / Breakdown List */}
           <div className="w-1/2 space-y-1.5 text-xs">
             {leadSources.map(source => (
               <div 

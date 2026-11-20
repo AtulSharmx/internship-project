@@ -38,7 +38,6 @@ export const KpiCard: React.FC<KpiCardProps> = ({
         accentBorderColor ? `hover:${accentBorderColor}` : ''
       }`}
     >
-      {/* Top Header */}
       <div className="flex items-center gap-2">
         <div className={`w-6 h-6 rounded-md flex items-center justify-center shrink-0 ${iconBgColor}`}>
           {icon}
@@ -48,7 +47,6 @@ export const KpiCard: React.FC<KpiCardProps> = ({
         </span>
       </div>
 
-      {/* Main Metric Value + Secondary Sub-metric */}
       <div className="my-2 flex items-baseline justify-between gap-1.5">
         <span className="text-2xl font-bold tracking-tight text-slate-900 tabular-nums">
           {value}
@@ -67,7 +65,6 @@ export const KpiCard: React.FC<KpiCardProps> = ({
         )}
       </div>
 
-      {/* Bottom Delta Indicator */}
       <div className="flex items-center gap-1 text-[10px] font-medium pt-1 border-t border-slate-100">
         {deltaInfo.isNeutral ? (
           <span className="inline-flex items-center text-slate-500 shrink-0">

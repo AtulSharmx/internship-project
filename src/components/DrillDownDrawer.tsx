@@ -56,16 +56,13 @@ export const DrillDownDrawer: React.FC = () => {
 
   return (
     <div className="fixed inset-0 z-50 overflow-hidden flex justify-end">
-      {/* Backdrop */}
       <div 
         className="fixed inset-0 bg-slate-900/40 backdrop-blur-xs transition-opacity duration-300"
         onClick={closeDrillDown}
       />
 
-      {/* Slide-over Panel */}
       <div className="relative w-full max-w-4xl bg-white shadow-2xl h-full flex flex-col z-10 animate-in slide-in-from-right duration-300 border-l border-slate-200">
         
-        {/* Top Header & Breadcrumb Bar */}
         <div className="px-6 py-4 bg-slate-50/80 border-b border-slate-200 flex items-center justify-between shrink-0">
           <div className="flex items-center gap-2">
             {drillDownStack.length > 1 && (
@@ -109,7 +106,6 @@ export const DrillDownDrawer: React.FC = () => {
           </div>
         </div>
 
-        {/* Content Body */}
         <div className="flex-1 overflow-y-auto p-6">
           
           {/* 1. SINGLE LEAD DETAIL VIEW */}
@@ -199,7 +195,6 @@ const LeadDetailView: React.FC<{ leadId: string; onInspectDeal: (dealId: string)
 
   return (
     <div className="space-y-6">
-      {/* Lead Card Header */}
       <div className="bg-slate-50 border border-slate-200 rounded-xl p-5">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-slate-200">
           <div>
@@ -231,7 +226,6 @@ const LeadDetailView: React.FC<{ leadId: string; onInspectDeal: (dealId: string)
           </div>
         </div>
 
-        {/* Contact & Meta Grid */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-4 text-xs">
           <div>
             <span className="text-slate-400 block text-[11px]">Email</span>
@@ -257,7 +251,6 @@ const LeadDetailView: React.FC<{ leadId: string; onInspectDeal: (dealId: string)
         </div>
       </div>
 
-      {/* Linked Quotations */}
       <div>
         <div className="flex items-center justify-between mb-2">
           <h4 className="text-xs font-bold uppercase tracking-wider text-slate-700 flex items-center gap-1.5">
@@ -306,7 +299,6 @@ const LeadDetailView: React.FC<{ leadId: string; onInspectDeal: (dealId: string)
         )}
       </div>
 
-      {/* Linked Deals */}
       <div>
         <div className="flex items-center justify-between mb-2">
           <h4 className="text-xs font-bold uppercase tracking-wider text-slate-700 flex items-center gap-1.5">
@@ -369,7 +361,6 @@ const DealDetailView: React.FC<{
 
   return (
     <div className="space-y-6">
-      {/* Deal Overview Card */}
       <div className="bg-slate-50 border border-slate-200 rounded-xl p-5">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-slate-200">
           <div>
@@ -403,7 +394,6 @@ const DealDetailView: React.FC<{
           </div>
         </div>
 
-        {/* Collection Status Bar */}
         <div className="pt-4">
           <div className="flex items-center justify-between text-xs font-medium mb-1.5">
             <span className="text-slate-600">Collection Progress</span>
@@ -424,7 +414,6 @@ const DealDetailView: React.FC<{
         </div>
       </div>
 
-      {/* Linked Fulfillment Orders */}
       <div>
         <div className="flex items-center justify-between mb-2">
           <h4 className="text-xs font-bold uppercase tracking-wider text-slate-700 flex items-center gap-1.5">
@@ -474,7 +463,6 @@ const DealDetailView: React.FC<{
         )}
       </div>
 
-      {/* Linked Payments */}
       <div>
         <div className="flex items-center justify-between mb-2">
           <h4 className="text-xs font-bold uppercase tracking-wider text-slate-700 flex items-center gap-1.5">
@@ -587,7 +575,6 @@ const OrderDetailView: React.FC<{ orderId: string; onInspectDeal: (id: string) =
         </div>
       </div>
 
-      {/* Fulfillment Stages Timeline */}
       <div>
         <h4 className="text-xs font-bold uppercase tracking-wider text-slate-700 mb-3">
           Compliance Fulfillment Milestones
@@ -645,7 +632,6 @@ const LeadsListView: React.FC<{ records: Lead[]; onInspectLead: (id: string) => 
 
   return (
     <div className="space-y-4">
-      {/* Search Bar */}
       <div className="relative">
         <Search className="w-4 h-4 text-slate-400 absolute left-3 top-2.5" />
         <input

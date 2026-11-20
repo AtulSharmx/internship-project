@@ -212,7 +212,6 @@ export const OperationsTeamSection: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Stacked Status Bar */}
                 <div className="w-full h-2 bg-slate-100 rounded-full overflow-hidden flex shadow-2xs">
                   {item.pending > 0 && (
                     <div 
@@ -295,7 +294,6 @@ export const OperationsTeamSection: React.FC = () => {
                     </div>
                   </div>
 
-                  {/* Interactive Record Link Pill */}
                   <button
                     onClick={() => {
                       if (item.recordType === 'lead') inspectLead(item.recordId);

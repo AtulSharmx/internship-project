@@ -97,7 +97,6 @@ export const Header: React.FC = () => {
       <div className="max-w-[1720px] mx-auto px-4 sm:px-6 lg:px-8 py-3.5">
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
           
-          {/* Brand & Title */}
           <div>
             <div className="flex items-center gap-2.5">
               <div className="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center text-white font-bold text-sm shadow-xs">
@@ -118,10 +117,8 @@ export const Header: React.FC = () => {
             </div>
           </div>
 
-          {/* Controls & Filters */}
           <div className="flex flex-wrap items-center gap-2.5">
             
-            {/* Date Preset Selector */}
             <div className="relative">
               <button
                 type="button"
@@ -177,7 +174,6 @@ export const Header: React.FC = () => {
               )}
             </div>
 
-            {/* User Filter */}
             <div className="relative">
               <button
                 type="button"
@@ -229,7 +225,6 @@ export const Header: React.FC = () => {
               )}
             </div>
 
-            {/* Department Filter */}
             <div className="relative">
               <button
                 type="button"
@@ -263,7 +258,6 @@ export const Header: React.FC = () => {
               )}
             </div>
 
-            {/* Export Button */}
             <button
               type="button"
               onClick={handleExportCSV}
@@ -275,7 +269,6 @@ export const Header: React.FC = () => {
           </div>
         </div>
 
-        {/* Sub-bar: Period comparison indicator */}
         <div className="mt-2.5 pt-2 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500">
           <div className="flex items-center gap-1.5">
             <Clock className="w-3 h-3 text-slate-400" />
@@ -290,7 +283,6 @@ export const Header: React.FC = () => {
         </div>
       </div>
 
-      {/* Custom Date Range Modal */}
       {showCustomModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/40 backdrop-blur-xs p-4">
           <div className="bg-white rounded-xl shadow-xl max-w-sm w-full p-5 border border-slate-200">

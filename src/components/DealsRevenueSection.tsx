@@ -37,7 +37,6 @@ export const DealsRevenueSection: React.FC = () => {
   return (
     <section aria-label="Deals and Revenue" className="mt-6">
       
-      {/* Section Header */}
       <div className="flex items-center gap-2 mb-3">
         <div className="w-6 h-6 rounded-md bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold">
           <IndianRupee className="w-3.5 h-3.5" />
@@ -329,7 +328,6 @@ export const DealsRevenueSection: React.FC = () => {
           </div>
 
           <div className="my-auto space-y-3 py-1">
-            {/* Total Deal Value Card */}
             <div 
               onClick={() => openDrillDown({
                 type: 'deal_list',
@@ -352,7 +350,6 @@ export const DealsRevenueSection: React.FC = () => {
               </p>
             </div>
 
-            {/* Net Collected Revenue Card */}
             <div 
               onClick={() => openDrillDown({
                 type: 'deal_list',
@@ -375,7 +372,6 @@ export const DealsRevenueSection: React.FC = () => {
               </p>
             </div>
 
-            {/* Outstanding Receivables Callout */}
             <div 
               onClick={() => openDrillDown({
                 type: 'deal_list',

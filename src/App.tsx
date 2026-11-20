@@ -11,10 +11,8 @@ import { DrillDownDrawer } from './components/DrillDownDrawer';
 export const AppContent: React.FC = () => {
   return (
     <div className="min-h-screen bg-slate-50 flex flex-col selection:bg-blue-100 selection:text-blue-900">
-      {/* Sticky Global Navigation & Filter Bar */}
       <Header />
 
-      {/* Main Dashboard Canvas */}
       <main className="flex-1 max-w-[1720px] w-full mx-auto px-4 sm:px-6 lg:px-8 py-5">
         {/* Row 1: Key Performance Indicators */}
         <KpiGrid />
@@ -32,10 +30,8 @@ export const AppContent: React.FC = () => {
         <OperationsTeamSection />
       </main>
 
-      {/* Relational Inspection Drawer */}
       <DrillDownDrawer />
 
-      {/* Enterprise Footer */}
       <footer className="bg-white border-t border-slate-200 py-4 px-6 text-xs text-slate-500 mt-auto">
         <div className="max-w-[1720px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
           <div className="flex items-center gap-2">
