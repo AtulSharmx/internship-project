@@ -14,19 +14,14 @@ export const AppContent: React.FC = () => {
       <Header />
 
       <main className="flex-1 max-w-[1720px] w-full mx-auto px-4 sm:px-6 lg:px-8 py-5">
-        {/* Row 1: Key Performance Indicators */}
         <KpiGrid />
 
-        {/* Row 2: Lead Funnel, Revenue Targets & Trends */}
         <LeadAnalyticsSection />
 
-        {/* Row 3: Quotation Analytics & Service Performance */}
         <QuotationAnalyticsSection />
 
-        {/* Row 4: Deals Pipeline, Priority Matrix & Cash Flow */}
         <DealsRevenueSection />
 
-        {/* Row 5: Operations, Team Productivity & Live CRM Feed */}
         <OperationsTeamSection />
       </main>
 
@@ -35,17 +30,14 @@ export const AppContent: React.FC = () => {
       <footer className="bg-white border-t border-slate-200 py-4 px-6 text-xs text-slate-500 mt-auto">
         <div className="max-w-[1720px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
           <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
             <span className="font-semibold text-slate-700">Corporate Compliance Hub</span>
             <span className="text-slate-300">•</span>
             <span>Business Performance & Revenue Analytics Dashboard</span>
           </div>
           <div className="flex items-center gap-4 text-slate-400">
-            <span>All values in Indian Rupees (₹ INR)</span>
+            <span>All values in Indian Rupees (₹)</span>
             <span>•</span>
-            <span>Frontend-Only In-Memory Relational Engine</span>
-            <span>•</span>
-            <span className="text-slate-600 font-medium">Ready for Vercel Deployment</span>
+            <span>Sample dataset, computed in the browser</span>
           </div>
         </div>
       </footer>

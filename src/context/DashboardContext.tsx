@@ -190,7 +190,7 @@ interface DashboardContextType {
 const DashboardContext = createContext<DashboardContextType | undefined>(undefined);
 
 export const DashboardProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  // Default to October 2026 matching assignment.png
+  // October 2026 is the window the sample dataset covers.
   const [preset, setPreset] = useState<DatePreset | 'october_2026'>('october_2026');
   const [startDate, setStartDate] = useState<string>('2026-10-01');
   const [endDate, setEndDate] = useState<string>('2026-10-31');
@@ -399,12 +399,17 @@ export const DashboardProvider: React.FC<{ children: React.ReactNode }> = ({ chi
     };
   }, [filteredLeads, prevLeads, filteredQuotations, prevQuotations, filteredDeals, prevDeals, filteredPayments, prevPayments]);
 
-  // Target Achievement (Monthly Target: ₹85,00,000 as seen in assignment.png)
+  // Collections target. Pro-rated across the selected window, so a 7-day view is
+  // not measured against a whole month's goal.
   const targetAchievement = useMemo(() => {
-    const target = 8500000;
+    const MONTHLY_COLLECTION_TARGET = 350000;
+    const start = new Date(startDate + 'T00:00:00');
+    const end = new Date(endDate + 'T23:59:59');
+    const days = Math.max(1, Math.round((end.getTime() - start.getTime()) / 86400000));
+    const target = Math.round((MONTHLY_COLLECTION_TARGET / 30) * days);
     const achieved = filteredDeals.reduce((sum, d) => sum + d.collectedAmount, 0);
     const remaining = Math.max(0, target - achieved);
-    const achievedPct = (achieved / target) * 100;
+    const achievedPct = target > 0 ? (achieved / target) * 100 : 0;
 
     return {
       target,
@@ -412,7 +417,7 @@ export const DashboardProvider: React.FC<{ children: React.ReactNode }> = ({ chi
       remaining,
       achievedPct
     };
-  }, [filteredDeals]);
+  }, [filteredDeals, startDate, endDate]);
 
   // Lead Funnel
   const leadFunnel = useMemo(() => {

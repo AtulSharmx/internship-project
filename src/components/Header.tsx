@@ -6,8 +6,7 @@ import {
   Download, 
   ChevronDown, 
   Check, 
-  Clock,
-  Sparkles
+  Clock
 } from 'lucide-react';
 import { useDashboard } from '../context/DashboardContext';
 import { DatePreset } from '../types';
@@ -37,7 +36,6 @@ export const Header: React.FC = () => {
   const [customEnd, setCustomEnd] = useState(endDate);
   const [showCustomModal, setShowCustomModal] = useState(false);
 
-  // Preset display name
   const getPresetLabel = () => {
     switch (preset) {
       case 'october_2026': return 'Oct 1 - Oct 31, 2026';
@@ -82,14 +80,15 @@ export const Header: React.FC = () => {
       ])
     ];
 
-    const csvContent = 'data:text/csv;charset=utf-8,' + rows.map(e => e.join(',')).join('\n');
-    const encodedUri = encodeURI(csvContent);
+    const csv = rows.map(r => r.join(',')).join('\n');
+    const url = URL.createObjectURL(new Blob([csv], { type: 'text/csv;charset=utf-8' }));
     const link = document.createElement('a');
-    link.setAttribute('href', encodedUri);
-    link.setAttribute('download', `Compliance_Performance_Report_${startDate}_${endDate}.csv`);
+    link.href = url;
+    link.download = `Compliance_Performance_Report_${startDate}_${endDate}.csv`;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+    URL.revokeObjectURL(url);
   };
 
   return (
@@ -103,13 +102,14 @@ export const Header: React.FC = () => {
                 CH
               </div>
               <div>
-                <h1 className="text-xl font-bold tracking-tight text-slate-900 flex items-center gap-2">
-                  Business Performance & Revenue Analytics
-                  <span className="inline-flex items-center gap-1 text-[11px] font-medium bg-emerald-50 text-emerald-700 border border-emerald-200/80 px-2 py-0.5 rounded-full">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                    Live System
+                <div className="flex items-center gap-2 flex-wrap">
+                  <h1 className="text-xl font-bold tracking-tight text-slate-900">
+                    Business Performance & Revenue Analytics
+                  </h1>
+                  <span className="inline-flex shrink-0 whitespace-nowrap items-center text-[11px] font-medium text-slate-600 bg-slate-100 border border-slate-200 px-2 py-0.5 rounded-full">
+                    Sample data
                   </span>
-                </h1>
+                </div>
                 <p className="text-xs text-slate-500 mt-0.5">
                   Track your leads, conversions, quotations, deals, revenue and operations in real time.
                 </p>
@@ -278,7 +278,7 @@ export const Header: React.FC = () => {
           </div>
 
           <div className="hidden sm:flex items-center gap-3">
-            <span className="text-slate-400">💡 Click any KPI card, chart bar, or table row to drill into underlying records</span>
+            <span className="text-slate-400">Select any KPI, bar or row to inspect the records behind it</span>
           </div>
         </div>
       </div>

@@ -10,9 +10,7 @@ interface KpiCardProps {
   delta: number;
   comparisonLabel: string;
   icon: React.ReactNode;
-  iconBgColor?: string;
   onClick?: () => void;
-  accentBorderColor?: string;
 }
 
 export const KpiCard: React.FC<KpiCardProps> = ({
@@ -23,32 +21,34 @@ export const KpiCard: React.FC<KpiCardProps> = ({
   delta,
   comparisonLabel,
   icon,
-  iconBgColor = 'bg-blue-50 text-blue-600',
-  onClick,
-  accentBorderColor
+  onClick
 }) => {
   const deltaInfo = formatDelta(delta);
 
   return (
     <div
       onClick={onClick}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          onClick?.();
+        }
+      }}
       role="button"
       tabIndex={0}
-      className={`group relative bg-white border border-slate-200/90 rounded-xl p-3.5 shadow-2xs hover:shadow-sm hover:border-blue-400 transition-all cursor-pointer flex flex-col justify-between ${
-        accentBorderColor ? `hover:${accentBorderColor}` : ''
-      }`}
+      className="group relative bg-white border border-slate-200/90 rounded-xl p-3.5 shadow-2xs hover:shadow-sm hover:border-blue-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 transition-all cursor-pointer flex flex-col justify-between"
     >
       <div className="flex items-center gap-2">
-        <div className={`w-6 h-6 rounded-md flex items-center justify-center shrink-0 ${iconBgColor}`}>
+        <span className="text-slate-400 shrink-0">
           {icon}
-        </div>
+        </span>
         <span className="text-[11px] font-bold text-slate-700 group-hover:text-slate-900 transition-colors leading-tight">
           {title}
         </span>
       </div>
 
       <div className="my-2 flex items-baseline justify-between gap-1.5">
-        <span className="text-2xl font-bold tracking-tight text-slate-900 tabular-nums">
+        <span className="text-2xl font-bold tracking-tight text-slate-900">
           {value}
         </span>
         {subValue && (

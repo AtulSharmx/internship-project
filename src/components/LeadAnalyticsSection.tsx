@@ -36,11 +36,10 @@ export const LeadAnalyticsSection: React.FC = () => {
   return (
     <section aria-label="Lead Analytics" className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 mt-4">
       
-      {/* 1. Target Achievement */}
       <div className="bg-white border border-slate-200/90 rounded-xl p-4 shadow-2xs flex flex-col justify-between">
         <div className="flex items-center justify-between pb-2 border-b border-slate-100">
           <div className="flex items-center gap-2">
-            <div className="w-6 h-6 rounded-md bg-blue-50 text-blue-600 flex items-center justify-center">
+            <div className="text-slate-400 flex items-center justify-center">
               <Target className="w-3.5 h-3.5" />
             </div>
             <h2 className="text-xs font-bold uppercase tracking-wider text-slate-700">Target Achievement</h2>
@@ -49,7 +48,7 @@ export const LeadAnalyticsSection: React.FC = () => {
         </div>
 
         <div className="my-3">
-          <span className="text-[11px] font-medium text-slate-500 block">Monthly Revenue Target</span>
+          <span className="text-[11px] font-medium text-slate-500 block">Collections target, this window</span>
           <span className="text-2xl font-black text-slate-900 tracking-tight font-mono tabular-nums">
             {formatINR(targetAchievement.target)}
           </span>
@@ -107,11 +106,10 @@ export const LeadAnalyticsSection: React.FC = () => {
         </button>
       </div>
 
-      {/* 2. Lead Funnel */}
       <div className="bg-white border border-slate-200/90 rounded-xl p-4 shadow-2xs flex flex-col justify-between">
         <div className="flex items-center justify-between pb-2 border-b border-slate-100">
           <div className="flex items-center gap-2">
-            <div className="w-6 h-6 rounded-md bg-indigo-50 text-indigo-600 flex items-center justify-center">
+            <div className="text-slate-400 flex items-center justify-center">
               <Filter className="w-3.5 h-3.5" />
             </div>
             <h2 className="text-xs font-bold uppercase tracking-wider text-slate-700">Lead Funnel</h2>
@@ -121,7 +119,6 @@ export const LeadAnalyticsSection: React.FC = () => {
 
         <div className="py-2 flex flex-col gap-2 relative">
           
-          {/* Stage 1: New Leads */}
           <div 
             onClick={() => openDrillDown({
               type: 'lead_list',
@@ -129,7 +126,7 @@ export const LeadAnalyticsSection: React.FC = () => {
               subtitle: '100% of top-of-funnel inbound inquiries',
               records: filteredLeads
             })}
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white p-2.5 rounded-lg shadow-2xs cursor-pointer transition-all transform hover:scale-[1.01]"
+            className="w-full bg-[#256abf] hover:bg-[#1c5cab] text-white p-2.5 rounded-lg shadow-2xs cursor-pointer transition-all"
           >
             <div className="flex items-center justify-between text-xs">
               <span className="font-bold">New Leads</span>
@@ -137,7 +134,6 @@ export const LeadAnalyticsSection: React.FC = () => {
             </div>
           </div>
 
-          {/* Funnel Stage 2: Qualified Leads */}
           <div 
             onClick={() => openDrillDown({
               type: 'lead_list',
@@ -146,7 +142,7 @@ export const LeadAnalyticsSection: React.FC = () => {
               records: filteredLeads.filter(l => l.status === 'qualified' || l.status === 'converted')
             })}
             style={{ width: '84%', margin: '0 auto' }}
-            className="bg-emerald-600 hover:bg-emerald-700 text-white p-2 rounded-lg shadow-2xs cursor-pointer transition-all transform hover:scale-[1.01]"
+            className="bg-[#184f95] hover:bg-[#14447f] text-white p-2 rounded-lg shadow-2xs cursor-pointer transition-all"
           >
             <div className="flex items-center justify-between text-xs">
               <span className="font-bold">Qualified</span>
@@ -156,7 +152,6 @@ export const LeadAnalyticsSection: React.FC = () => {
             </div>
           </div>
 
-          {/* Funnel Stage 3: Converted */}
           <div 
             onClick={() => openDrillDown({
               type: 'lead_list',
@@ -165,7 +160,7 @@ export const LeadAnalyticsSection: React.FC = () => {
               records: filteredLeads.filter(l => l.status === 'converted')
             })}
             style={{ width: '68%', margin: '0 auto' }}
-            className="bg-amber-500 hover:bg-amber-600 text-white p-2 rounded-lg shadow-2xs cursor-pointer transition-all transform hover:scale-[1.01]"
+            className="bg-[#0d366b] hover:bg-[#0a2c58] text-white p-2 rounded-lg shadow-2xs cursor-pointer transition-all"
           >
             <div className="flex items-center justify-between text-xs">
               <span className="font-bold">Converted</span>
@@ -182,13 +177,13 @@ export const LeadAnalyticsSection: React.FC = () => {
               subtitle: `${leadFunnel.unqualified} leads dropped during qualification`,
               records: filteredLeads.filter(l => l.status === 'unqualified')
             })}
-            className="mt-1 p-2 bg-slate-50 hover:bg-rose-50/50 border border-dashed border-rose-200 rounded-lg text-slate-700 hover:text-rose-800 transition-colors cursor-pointer flex items-center justify-between text-xs"
+            className="mt-1 p-2 bg-slate-50 hover:bg-slate-100 border border-slate-200 rounded-lg text-slate-600 transition-colors cursor-pointer flex items-center justify-between text-xs"
           >
             <div className="flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-rose-500" />
+              <span className="w-1.5 h-1.5 rounded-full bg-slate-400" />
               <span className="font-semibold">Unqualified Drop-off</span>
             </div>
-            <span className="font-bold text-rose-600 font-mono tabular-nums">
+            <span className="font-bold text-slate-700 font-mono tabular-nums">
               {leadFunnel.unqualified} ({formatPercent(leadFunnel.unqualifiedPct)})
             </span>
           </div>
@@ -199,24 +194,23 @@ export const LeadAnalyticsSection: React.FC = () => {
         </p>
       </div>
 
-      {/* 3. Daily Lead Trend */}
       <div className="bg-white border border-slate-200/90 rounded-xl p-4 shadow-2xs flex flex-col justify-between">
         <div className="flex items-center justify-between pb-2 border-b border-slate-100">
           <div className="flex items-center gap-2">
-            <div className="w-6 h-6 rounded-md bg-emerald-50 text-emerald-600 flex items-center justify-center">
+            <div className="text-slate-400 flex items-center justify-center">
               <TrendingUp className="w-3.5 h-3.5" />
             </div>
             <h2 className="text-xs font-bold uppercase tracking-wider text-slate-700">Daily Lead Trend</h2>
           </div>
           <div className="flex items-center gap-2 text-[10px] font-medium">
-            <span className="inline-flex items-center gap-1 text-blue-600">
-              <span className="w-2 h-2 rounded-full bg-blue-600" /> New
+            <span className="inline-flex items-center gap-1 text-slate-600">
+              <span className="w-2 h-2 rounded-full bg-[#2a78d6]" /> New
             </span>
-            <span className="inline-flex items-center gap-1 text-emerald-600">
-              <span className="w-2 h-2 rounded-full bg-emerald-500" /> Qual.
+            <span className="inline-flex items-center gap-1 text-slate-600">
+              <span className="w-2 h-2 rounded-full bg-[#eb6834]" /> Qual.
             </span>
-            <span className="inline-flex items-center gap-1 text-amber-600">
-              <span className="w-2 h-2 rounded-full bg-amber-500" /> Conv.
+            <span className="inline-flex items-center gap-1 text-slate-600">
+              <span className="w-2 h-2 rounded-full bg-[#1baf7a]" /> Conv.
             </span>
           </div>
         </div>
@@ -224,7 +218,7 @@ export const LeadAnalyticsSection: React.FC = () => {
         <div className="h-44 w-full pt-2">
           <ResponsiveContainer width="100%" height="100%">
             <LineChart data={dailyLeadTrend} margin={{ top: 5, right: 10, left: -25, bottom: 0 }}>
-              <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f1f5f9" />
+              <CartesianGrid vertical={false} stroke="#f1f5f9" />
               <XAxis 
                 dataKey="displayDate" 
                 tick={{ fontSize: 9, fill: '#64748b' }} 
@@ -253,27 +247,27 @@ export const LeadAnalyticsSection: React.FC = () => {
                 type="monotone" 
                 dataKey="newLeads" 
                 name="New Leads" 
-                stroke="#2563eb" 
+                stroke="#2a78d6" 
                 strokeWidth={2} 
-                dot={{ r: 2, fill: '#2563eb' }}
+                dot={{ r: 2, fill: '#2a78d6' }}
                 activeDot={{ r: 4 }}
               />
               <Line 
                 type="monotone" 
                 dataKey="qualified" 
                 name="Qualified" 
-                stroke="#10b981" 
+                stroke="#eb6834" 
                 strokeWidth={2} 
-                dot={{ r: 2, fill: '#10b981' }}
+                dot={{ r: 2, fill: '#eb6834' }}
                 activeDot={{ r: 4 }}
               />
               <Line 
                 type="monotone" 
                 dataKey="converted" 
                 name="Converted" 
-                stroke="#f59e0b" 
+                stroke="#1baf7a" 
                 strokeWidth={2} 
-                dot={{ r: 2, fill: '#f59e0b' }}
+                dot={{ r: 2, fill: '#1baf7a' }}
                 activeDot={{ r: 4 }}
               />
             </LineChart>
@@ -286,11 +280,10 @@ export const LeadAnalyticsSection: React.FC = () => {
         </div>
       </div>
 
-      {/* 4. Lead Sources */}
       <div className="bg-white border border-slate-200/90 rounded-xl p-4 shadow-2xs flex flex-col justify-between">
         <div className="flex items-center justify-between pb-2 border-b border-slate-100">
           <div className="flex items-center gap-2">
-            <div className="w-6 h-6 rounded-md bg-purple-50 text-purple-600 flex items-center justify-center">
+            <div className="text-slate-400 flex items-center justify-center">
               <PieIcon className="w-3.5 h-3.5" />
             </div>
             <h2 className="text-xs font-bold uppercase tracking-wider text-slate-700">Lead Sources</h2>

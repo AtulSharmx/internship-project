@@ -38,7 +38,7 @@ export const DealsRevenueSection: React.FC = () => {
     <section aria-label="Deals and Revenue" className="mt-6">
       
       <div className="flex items-center gap-2 mb-3">
-        <div className="w-6 h-6 rounded-md bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold">
+        <div className="text-slate-400 flex items-center justify-center">
           <IndianRupee className="w-3.5 h-3.5" />
         </div>
         <h2 className="text-base font-bold text-slate-900 tracking-tight">
@@ -52,22 +52,15 @@ export const DealsRevenueSection: React.FC = () => {
         <div className="bg-white border border-slate-200/90 rounded-xl p-4 shadow-2xs flex flex-col justify-between">
           <div className="flex items-center justify-between pb-2 border-b border-slate-100">
             <h3 className="text-xs font-bold uppercase tracking-wider text-slate-700 truncate">
-              Deals vs Revenue
+              Deals by service
             </h3>
-            <div className="flex items-center gap-2 text-[10px]">
-              <span className="inline-flex items-center gap-1 text-blue-600 font-medium">
-                <span className="w-1.5 h-1.5 rounded-full bg-blue-600" /> Deals
-              </span>
-              <span className="inline-flex items-center gap-1 text-amber-600 font-medium">
-                <span className="w-1.5 h-1.5 rounded-full bg-amber-500" /> Rev (₹)
-              </span>
-            </div>
+            <span className="text-[10px] text-slate-400 shrink-0">count</span>
           </div>
 
           <div className="h-48 w-full pt-2">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={dealsVsRevenueByService.slice(0, 5)} margin={{ top: 15, right: 5, left: -25, bottom: 20 }}>
-                <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f1f5f9" />
+                <CartesianGrid vertical={false} stroke="#f1f5f9" />
                 <XAxis 
                   dataKey="serviceName" 
                   tick={{ fontSize: 9, fill: '#64748b' }} 
@@ -276,7 +269,7 @@ export const DealsRevenueSection: React.FC = () => {
           <div className="h-48 w-full pt-2">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={dailyRevenueTrend} margin={{ top: 15, right: 5, left: -25, bottom: 0 }}>
-                <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f1f5f9" />
+                <CartesianGrid vertical={false} stroke="#f1f5f9" />
                 <XAxis 
                   dataKey="displayDate" 
                   tick={{ fontSize: 9, fill: '#64748b' }} 

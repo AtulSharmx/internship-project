@@ -167,7 +167,7 @@ export function generateDashboardMockData() {
     const currentDate = new Date(startDate.getTime() + dayOffset * 86400000);
     const isOctober = currentDate.getMonth() === 9; // Oct is month 9 (0-indexed)
     
-    // October has active targets (~3-4 leads per day, matching assignment.png's 91 leads)
+    // October runs at roughly 3-4 inbound leads a day.
     const leadsCountForDay = isOctober ? (dayOffset % 7 === 0 || dayOffset % 7 === 6 ? 2 : Math.floor(rand() * 3) + 2) : Math.floor(rand() * 3) + 1;
 
     for (let l = 0; l < leadsCountForDay; l++) {
@@ -179,7 +179,7 @@ export function generateDashboardMockData() {
       const compPrefix = COMPANY_PREFIXES[Math.floor(rand() * COMPANY_PREFIXES.length)];
       const compName = `${compPrefix} ${service.id === 'pvt_ltd' ? 'Pvt Ltd' : service.id === 'llp' ? 'LLP' : 'Enterprises'}`;
 
-      // Weight sources to reflect Google Ads predominance as seen in assignment.png (76.9% Google Ads, 23.1% Website)
+      // Google Ads brings in roughly three quarters of inbound leads.
       const srcRand = rand();
       let source: LeadSource = 'Google Ads';
       if (srcRand > 0.77) source = 'Website';

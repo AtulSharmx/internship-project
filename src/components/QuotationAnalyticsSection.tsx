@@ -36,7 +36,7 @@ export const QuotationAnalyticsSection: React.FC = () => {
     <section aria-label="Quotation Analytics" className="mt-6">
       
       <div className="flex items-center gap-2 mb-3">
-        <div className="w-6 h-6 rounded-md bg-blue-100 text-blue-700 flex items-center justify-center font-bold">
+        <div className="text-slate-400 flex items-center justify-center">
           <FileText className="w-3.5 h-3.5" />
         </div>
         <h2 className="text-base font-bold text-slate-900 tracking-tight">
@@ -61,7 +61,7 @@ export const QuotationAnalyticsSection: React.FC = () => {
           <div className="h-48 w-full pt-2">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={quotationsByService.slice(0, 6)} margin={{ top: 15, right: 5, left: -25, bottom: 20 }}>
-                <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f1f5f9" />
+                <CartesianGrid vertical={false} stroke="#f1f5f9" />
                 <XAxis 
                   dataKey="name" 
                   tick={{ fontSize: 9, fill: '#64748b' }} 
